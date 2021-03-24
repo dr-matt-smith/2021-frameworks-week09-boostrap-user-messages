@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+
+{% block body %}
+
+    <h1>Welcome to My Greate Website</h1>
+
+
+    <p>
+        hope you like it
+    </p>
+
+    <hr>
+    <ul>
+    <h2>
+        Messages by: <b>{{ app.user.username }}</b>
+    </h2>
+    {% for message in messages %}
+        <li>
+            author: <b>{{ message.author }}</b>
+            <br>
+            message content = "<b>{{ message.content }}</b>"
+        </li>
+    {% endfor %}
+    </ul>
+
+    <hr>
+    <form action="{{ url("message_create") }}" method="post">
+        <input name="content" type="text">
+        <input type="submit">
+    </form>
+
+{% endblock %}
